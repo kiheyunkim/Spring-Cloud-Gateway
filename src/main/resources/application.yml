@@ -8,6 +8,8 @@ spring:
           uri: lb://USER-SERVICE
           predicates:
             - Path=/user-service/**
+          filters: #https://cloud.spring.io/spring-cloud-gateway/reference/html/
+            - RewritePath=/user-service/, /
     discovery:
       enabled: true
 eureka:

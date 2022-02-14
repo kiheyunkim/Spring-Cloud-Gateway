@@ -14,4 +14,6 @@ spring:
           uri: lb://USER-SERVICE  # 라우팅 할 MSA를 지정하며 lb는 로드 밸런싱(round-robin)으로 하도록 함.
           predicates:
             - Path=/user-service/** # 주소가 predicates에 맞는 형식인 경우 위의 uri로 요청을 보냄
+          filters:
+            - RewritePath=/user-service/, / # "/user-service/" 로 요청이 들어오면 uri의 "/"으로 매핑시켜줌
 ```
